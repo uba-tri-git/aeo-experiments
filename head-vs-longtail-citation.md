@@ -1,4 +1,4 @@
-# Head vs Long-Tail Commercial-Intent Citation: Does AI Cite Domains Google's Authority Gate Buried?
+# Head vs Long-Tail Commercial-Intent Citation: Are Niche Sites That Traditional SEO Hid Now Showing Up in AI Answers?
 
 **Author:** Uba Alintah, VP Growth and GTM at Contently
 **Conducted:** April 23, 2026
