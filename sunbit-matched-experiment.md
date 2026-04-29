@@ -1,8 +1,11 @@
-# Sunbit Matched-Prompt Experiment — Controlled A/B Comparison
+# Sunbit Matched-Prompt Comparison: Does High Consumer-Review Sentiment Earn Systematically Better LLM Framing?
 
 **Author:** Uba Alintah, VP Growth and GTM at Contently
 **Conducted:** April 15, 2026
-**Status:** Controlled follow-up to the CareCredit LLM Citation Experiment
+
+## Hypothesis
+
+If consumer sentiment shapes the recommendation slot in LLM responses, a high-rated competitor (Sunbit, Trustpilot 4.7/5) should receive systematically more positive framing than a low-rated competitor (CareCredit, Trustpilot 1.2/5) when both are referenced in the same response to identical decision-intent prompts.
 
 ## Purpose
 

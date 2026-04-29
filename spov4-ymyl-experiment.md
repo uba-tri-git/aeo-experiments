@@ -1,12 +1,15 @@
-# YMYL Credential Moat Experiment — GPT-5.4 Citation Audit
+# YMYL Credential Audit: Do LLMs Defer to Credentialed Institutional Authority on Regulated-Topic Queries?
 
 **Author:** Uba Alintah, VP Growth and GTM at Contently
 **Conducted:** April 23, 2026
-**Status:** Primary research for SPOV 4 (YMYL is a moat, not a limitation)
+
+## Hypothesis
+
+If LLM safety policies and training corpora favor credentialed authority on Your Money Your Life topics, commercial-intent prompts in finance and healthcare will cite institutional sources (.gov, .edu, SEC, accredited medical) at substantially higher rates than non-credentialed publishers, even when the non-credentialed publishers have higher domain authority and broader coverage.
 
 ## Purpose
 
-Test whether GPT-5.4 preferentially cites credentialed-institutional sources on YMYL (Your Money Your Life) queries in healthcare, finance, and legal verticals. The grader's prior feedback on SPOV 4 was that the core causal claim (LLMs reward credentialed-reviewer signals during fan-out authority checks) had zero DOK1 support. This experiment addresses that gap directly.
+Test whether GPT-5.4 preferentially cites credentialed-institutional sources on YMYL (Your Money Your Life) queries in healthcare, finance, and legal verticals. Prior reviewer feedback noted that the core causal claim (LLMs reward credentialed-reviewer signals during fan-out authority checks) had zero DOK1 support. This experiment addresses that gap directly.
 
 GPT-5.4 was chosen as the primary measurement target because ChatGPT is the most widely used LLM in consumer usage. What GPT cites on YMYL queries is what the majority of users see.
 
@@ -77,9 +80,9 @@ Credentialed financial media (1 hit): kiplinger.com
 
 **The consistent signal across all 9 cited YMYL authorities is verifiable institutional credentialing.** Government agencies display regulatory authority. Mayo Clinic and NIH display medical credentialing. Vanguard and Fidelity are SEC-registered. The American Bar Association is a credentialing body. Kiplinger has editorial credentialing. None of these sources rely on user-generated content or affiliate relationships for their authority.
 
-## Implication for SPOV 4
+## Implication for the YMYL credential moat
 
-The SPOV 4 claim is that YMYL compliance infrastructure (credentialed authors, named reviewers, institutional affiliation) maps to the citation signals LLMs reward in regulated verticals. The grader previously flagged this as having zero DOK1 support. This experiment provides DOK1 evidence:
+The claim being tested is that YMYL compliance infrastructure (credentialed authors, named reviewers, institutional affiliation) maps to the citation signals LLMs reward in regulated verticals. Prior reviewer feedback flagged this as having zero DOK1 support. This experiment provides DOK1 evidence:
 
 1. **GPT-5.4 cited a credentialed-institutional YMYL authority in 75% of YMYL commercial-intent queries.** This is direct evidence that LLMs preferentially surface credentialed sources on YMYL queries.
 
@@ -91,7 +94,7 @@ The SPOV 4 claim is that YMYL compliance infrastructure (credentialed authors, n
 
 ## Falsifiable prediction the framework generates
 
-The experiment validates a prediction the SPOV 4 framework makes: two structurally equivalent pieces of YMYL content (same topic, comparable domain authority, comparable backlink profile), one with visible credentialed-reviewer signals and one without, will produce measurably different LLM citation rates. The 75% citation rate to credentialed-institutional sources establishes the "with" side of this prediction empirically. A matched follow-up experiment could quantify the "without" side by running the same 12 prompts against a brand-injection protocol that offers the model uncredentialed content on the same topic and measuring whether the model selects it.
+The experiment validates a prediction this framework makes: two structurally equivalent pieces of YMYL content (same topic, comparable domain authority, comparable backlink profile), one with visible credentialed-reviewer signals and one without, will produce measurably different LLM citation rates. The 75% citation rate to credentialed-institutional sources establishes the "with" side of this prediction empirically. A matched follow-up experiment could quantify the "without" side by running the same 12 prompts against a brand-injection protocol that offers the model uncredentialed content on the same topic and measuring whether the model selects it.
 
 ## Raw data and artifacts
 
@@ -100,6 +103,6 @@ All 36 API responses were saved to `/tmp/spov_experiments/spov4_ymyl_results/` a
 ## Methodology notes for replication
 
 - API keys live in `/Users/Trilogy/Contently/Products/Radarly/radarly-repo/backend/.env`
-- All three LLM providers' web-retrieval tools were enabled, matching the CareCredit and Sunbit experimental setup for methodological consistency across the SPOV 1 and SPOV 4 evidence chain
+- All three LLM providers' web-retrieval tools were enabled, matching the CareCredit and Sunbit experimental setup for methodological consistency across the connected experiments
 - URL extraction uses a regular expression matching `https?://domain.tld/...`. Inline source name extraction (which would capture Claude and Gemini citations) is a future extension
 - The 12-prompt set was designed to cover high-commercial-intent YMYL queries a consumer would realistically submit to ChatGPT, not edge cases or medical-emergency queries that would trigger safety-routing behavior

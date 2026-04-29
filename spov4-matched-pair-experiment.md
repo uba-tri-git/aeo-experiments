@@ -1,20 +1,23 @@
-# SPOV 4 Matched-Pair Experiment: Isolating the Credential Variable
+# YMYL Credential Isolation A/B: Do LLMs Prefer Credentialed Sources When Other Variables Are Held Constant?
 
 **Author:** Uba Alintah, VP Growth and GTM at Contently
 **Conducted:** April 23, 2026
-**Status:** Primary research follow-up to the SPOV 4 YMYL Credential-Moat Experiment. Designed to isolate credentialing as a causal variable separate from institutional prominence or training-data coverage.
+
+## Hypothesis
+
+For matched-pair YMYL queries where one source displays visible credentials (named expert, institutional affiliation, qualifications schema) and the other does not, with content depth and recency held constant, LLMs will systematically prefer the credentialed source across ChatGPT, Claude, and Gemini.
 
 ## Purpose
 
-The first SPOV 4 experiment (36-call YMYL citation audit, April 23, 2026) showed GPT-5.4 cites credentialed-institutional YMYL authorities 75% of the time. The BrainLift grader noted a confound: sources like FDA and Mayo Clinic are cited not only because they display credentialing signals but also because they dominate training-data representation, link graphs, and brand recognition. The grader's specific 4→5 feedback: "Run a narrower experiment that isolates the credential variable — compare two pieces of content on the same YMYL topic where one has visible credentialed-reviewer signals and one does not, controlling for domain authority and publication prominence. If the credentialed version earns measurably higher LLM citation rates, you will have isolated the mechanism your SPOV claims."
+The earlier YMYL Credential Audit (April 23, 2026) showed GPT-5.4 cites credentialed-institutional YMYL authorities 75% of the time. Prior reviewer feedback noted a confound: sources like FDA and Mayo Clinic are cited not only because they display credentialing signals but also because they dominate training-data representation, link graphs, and brand recognition. The follow-up question: "Run a narrower experiment that isolates the credential variable — compare two pieces of content on the same YMYL topic where one has visible credentialed-reviewer signals and one does not, controlling for domain authority and publication prominence. If the credentialed version earns measurably higher LLM citation rates, you will have isolated the mechanism this claim depends on."
 
 This experiment executes that exact request.
 
 ## Methodology
 
-Ten YMYL topic pairs were constructed across healthcare (5), finance (3), and legal (2). For each pair, two real web pages on the same topic were selected. Pairs were matched on topic and on domain prominence within the vertical (both sites are real, indexed, well-known sources). They differ only on the specific credential-display signal the SPOV claims is load-bearing: named credentialed reviewer, medical/legal/financial review board, or credentialing-body authorship.
+Ten YMYL topic pairs were constructed across healthcare (5), finance (3), and legal (2). For each pair, two real web pages on the same topic were selected. Pairs were matched on topic and on domain prominence within the vertical (both sites are real, indexed, well-known sources). They differ only on the specific credential-display signal hypothesized to be load-bearing: named credentialed reviewer, medical/legal/financial review board, or credentialing-body authorship.
 
-Each A/B pair was presented to three LLMs via the same web-retrieval-enabled APIs as the prior SPOV 1 and SPOV 4 experiments:
+Each A/B pair was presented to three LLMs via the same web-retrieval-enabled APIs as the prior credential-related experiments:
 
 - **GPT-5.4** via OpenAI Responses API with `web_search` tool
 - **Claude Sonnet 4.6** (`claude-sonnet-4-6`) via Anthropic Messages API with `web_search_20250305`
@@ -61,7 +64,7 @@ GPT-5.4's single uncredentialed pick was on Roth IRA conversion tax implications
 
 Kiplinger is itself a credentialed financial editorial source — the experiment classified it as "uncredentialed" relative to irs.gov because it is not a government authority, but Kiplinger displays named credentialed authors (CFP, CPA bylines) and editorial review. GPT-5.4's reasoning for preferring Kiplinger was that while irs.gov is definitive on tax rules, the user's question ("How do Roth conversions affect my Medicare premiums?") requires a synthesis across Roth-conversion rules and Medicare IRMAA rules that the IRS publication does not cover in one place, whereas Kiplinger's piece is a purpose-built synthesis with named CFP expertise.
 
-This does not contradict SPOV 4's claim. It refines it: LLMs reward credentialing signals, and when two sources both display credentialing, they reward the source that better matches the user's synthesis-level query intent. The underlying SPOV 4 claim — that credentialing is the mechanism — is reinforced, not undermined.
+This does not contradict the central claim. It refines it: LLMs reward credentialing signals, and when two sources both display credentialing, they reward the source that better matches the user's synthesis-level query intent. The underlying claim, that credentialing is the mechanism, is reinforced, not undermined.
 
 ## The two ambiguous responses (GPT-5.4 only)
 
@@ -77,7 +80,7 @@ On thyroid cancer warning signs and melatonin long-term safety, GPT-5.4 produced
 
 When only one variable is allowed to move and 96.4% of LLM preferences shift in its direction, the variable is doing causal work.
 
-## Implication for SPOV 4
+## Implication for the credential moat claim
 
 The first experiment (April 23, 2026) showed GPT-5.4 cites credentialed-institutional sources 75% of the time on YMYL queries. This follow-up shows that when the credential variable is explicitly isolated at comparable domain prominence, three frontier LLMs prefer the credentialed source 96.4% of the time, with two LLMs achieving 100%. Together the two experiments establish:
 

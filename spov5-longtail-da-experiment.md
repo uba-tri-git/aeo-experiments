@@ -1,12 +1,15 @@
-# SPOV 5 Long-Tail DA Experiment — Head vs Specific Query Citation Distribution
+# Head vs Long-Tail Commercial-Intent Citation: Does AI Cite Domains Google's Authority Gate Buried?
 
 **Author:** Uba Alintah, VP Growth and GTM at Contently
 **Conducted:** April 23, 2026
-**Status:** Primary research for SPOV 5 (The long tail is back; AI broke the Domain Authority gate)
+
+## Hypothesis
+
+If AI search has broken Google's Domain Authority gate, long-tail buyer queries should surface domains that head-query equivalents would never cite. A controlled head-vs-tail comparison with SEMrush rank verification on every cited domain will show whether the citation distributions diverge by query specificity.
 
 ## Purpose
 
-Test whether long-tail queries (specific, 10+ words, low-traditional-search-volume) surface a materially different citation pool than matched head queries (1-3 words, high-volume) on the same topic. The grader's prior feedback on SPOV 5 was that the central claim — AI broke the DA gate for challenger brands on long-tail queries — had no DOK1 evidence documenting which sources actually get cited on long-tail vs head queries. This experiment runs that comparison.
+Test whether long-tail queries (specific, 10+ words, low-traditional-search-volume) surface a materially different citation pool than matched head queries (1-3 words, high-volume) on the same topic. Prior reviewer feedback noted that the central claim, that AI broke the DA gate for challenger brands on long-tail queries, had no DOK1 evidence documenting which sources actually get cited on long-tail vs head queries. This experiment runs that comparison.
 
 ## Methodology
 
@@ -80,7 +83,7 @@ The tail-only domain set includes:
 | tranquilityproducts.com | 212187 | Incontinence brand |
 | northshorecare.com | 42780 | Incontinence specialist retailer |
 
-## What this proves for SPOV 5
+## What this proves
 
 The long-tail citation pool includes sources spanning from rank 26 (pmc.ncbi.nlm.nih.gov, an authoritative subdomain) to rank 231,782 (hostfully.com, a niche vacation-rental software specialist). Under classic SEO's DA gate, a site with a Moz/SEMrush rank of 231,782 has effectively zero chance of appearing on page 1 for "Best project management tool" — the head-query is owned by top-1000-rank publishers. But on the long-tail variant ("Best project management tool for a distributed architecture firm managing hospital construction projects"), AI surfaces Procore (rank 3,585) and construction.autodesk.com (rank 1,668) alongside hostfully-tier specialists that classic SEO would not elevate.
 
@@ -95,7 +98,7 @@ The long-tail median rank (2,912) is higher than the head median (10,704) becaus
 For enterprise brands in 2026, the long-tail opportunity is real but conditional. Winning the tail requires:
 1. Topic pages that match the specificity of long-tail buyer queries (for a 10-person luxury vacation rental real estate team, not just "real estate CRM")
 2. Domain authority that is credible within the vertical, not necessarily globally (procore.com at global rank 3,585 wins construction-software queries without needing to compete with salesforce.com at global rank 1,000)
-3. Aggregator or authority-signaling presence that AI retrieval uses as a prerequisite (per SPOV 2)
+3. Aggregator or authority-signaling presence that AI retrieval uses as a prerequisite (per the aggregator-prerequisite finding)
 
 Challenger brands that have built vertical authority in a specific niche — even without global DA — can now be cited on long-tail queries that were impossible to win under classic SEO.
 

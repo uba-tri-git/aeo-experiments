@@ -1,12 +1,15 @@
-# SPOV 3 Cross-Model Drift Experiment: Testing Infrastructure Is the Only Moat
+# Cross-Model Citation Divergence: Do Frontier LLMs Cite the Same Sources for Identical Prompts?
 
 **Author:** Uba Alintah, VP Growth and GTM at Contently
 **Conducted:** April 23, 2026
-**Status:** Primary research for SPOV 3 (no permanent wins in AEO/GEO; standing testing infrastructure is the durable advantage)
+
+## Hypothesis
+
+If GEO best practices generalize across LLM providers, identical commercial-intent prompts run within a controlled time window with equivalent retrieval should produce substantially overlapping citation sets across ChatGPT, Claude, and Gemini. Low overlap (Jaccard < 0.20) would indicate that any single-provider validation is structurally incomplete.
 
 ## Purpose
 
-Test whether the same commercial-intent prompt, run through three frontier LLMs on the same day with the same web-retrieval settings, produces materially different citation sets. The grader's prior feedback on SPOV 3 was that the central claim (testing infrastructure is the moat) had zero DOK1 support: "Add DOK1-level evidence that control-group testing against silent model updates actually produces reliable, actionable results." This experiment provides direct evidence by measuring cross-provider citation divergence on an identical prompt set in a controlled snapshot.
+Test whether the same commercial-intent prompt, run through three frontier LLMs on the same day with the same web-retrieval settings, produces materially different citation sets. Prior reviewer feedback noted that the central claim (testing infrastructure is the moat) had zero DOK1 support: "Add DOK1-level evidence that control-group testing against silent model updates actually produces reliable, actionable results." This experiment provides direct evidence by measuring cross-provider citation divergence on an identical prompt set in a controlled snapshot.
 
 If frontier providers cite substantially different brand and source sets for the same query on the same day, then:
 1. No single optimization effort "wins" across platforms

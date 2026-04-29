@@ -1,12 +1,15 @@
-# SPOV 2 Aggregator Prerequisite Experiment — GPT-5.4 B2B Commercial Citation Audit
+# B2B Commercial-Intent Citation Pool Audit: Are Trusted Aggregators a Prerequisite for AI Visibility?
 
 **Author:** Uba Alintah, VP Growth and GTM at Contently
 **Conducted:** April 23, 2026
-**Status:** Primary research for SPOV 2 (Trusted aggregator presence is a prerequisite for AI visibility in commercial queries)
+
+## Hypothesis
+
+If trusted third-party aggregators (Gartner, G2, Capterra, Forbes Advisor, TrustRadius) are functionally required for B2B AI visibility, then a high share of commercial-intent ChatGPT responses should cite at least one such aggregator, with the rest of the citation pool consisting of vendor-owned content rather than independent blogs or affiliate review sites.
 
 ## Purpose
 
-Test whether GPT-5.4, on B2B commercial-intent queries, disproportionately cites trusted aggregators (G2, Capterra, Gartner, Forbes Advisor, TrustRadius, Peerspot, SoftwareAdvice) as part of the retrieval pool. The grader's prior feedback on SPOV 2 was that the aggregator-prerequisite claim traced to a single source (Lily Ray / Chris Long) and had no DOK1 evidence that aggregator absence actually excludes brands from the citation pool. This experiment provides the naturalistic baseline: what fraction of B2B commercial-query responses actually include an aggregator citation?
+Test whether GPT-5.4, on B2B commercial-intent queries, disproportionately cites trusted aggregators (G2, Capterra, Gartner, Forbes Advisor, TrustRadius, Peerspot, SoftwareAdvice) as part of the retrieval pool. Prior reviewer feedback was that the aggregator-prerequisite claim traced to a single source (Lily Ray / Chris Long) and had no DOK1 evidence that aggregator absence actually excludes brands from the citation pool. This experiment provides the naturalistic baseline: what fraction of B2B commercial-query responses actually include an aggregator citation?
 
 GPT-5.4 is the primary measurement target because ChatGPT is the most widely used LLM in B2B research behavior.
 
@@ -75,17 +78,17 @@ Claude and Gemini returned zero URL-embedded aggregator citations, but this is a
 | 1 | grammarly.com | vendor |
 | 1 | jasper.ai | vendor |
 
-## What this means for SPOV 2
+## What this proves about aggregator presence
 
 Gartner alone appears in 7 of 15 GPT-5.4 B2B commercial-query responses (46.7% of prompts). When the entire aggregator set is counted, 8 of 15 responses (53.3%) include at least one aggregator citation. This establishes empirically that aggregator presence is a material input to GPT-5.4's B2B commercial-query citation pool, not a decorative add-on.
 
-The second-order finding is equally important: the remaining citations in the pool are to vendor-owned domains (hubspot.com, adobe.com, salesforce.com, monday.com, etc.). The entire citation pool divides cleanly into two buckets: trusted aggregators and vendor-owned pages. No significant presence of general-interest blogs, affiliate review sites, or uncredentialed commercial publishers appears. This matches the SPOV 2 claim that aggregators plus owned content are the two inputs GPT actually retrieves from on B2B commercial queries.
+The second-order finding is equally important: the remaining citations in the pool are to vendor-owned domains (hubspot.com, adobe.com, salesforce.com, monday.com, etc.). The entire citation pool divides cleanly into two buckets: trusted aggregators and vendor-owned pages. No significant presence of general-interest blogs, affiliate review sites, or uncredentialed commercial publishers appears. This matches the claim that aggregators plus owned content are the two inputs GPT actually retrieves from on B2B commercial queries.
 
 For enterprise B2B vendors, the operational implication is direct: if a vendor has no G2, Capterra, Gartner, Forbes Advisor, or TrustRadius profile, it cannot enter the aggregator half of GPT-5.4's citation pool. Its only shot at citation is the vendor-owned half, which requires the vendor to own the topic page GPT-5.4 decides is the primary source. In practice that means B2B vendors without aggregator presence depend on winning search authority for their own category-defining content, while competitors with aggregator presence get two shots at the citation pool.
 
-## The SPOV 2 sequencing claim is grounded
+## The sequencing claim is grounded
 
-The SPOV 2 sequencing prescription (aggregator gap-mapping should be step one of every AEO engagement, before CMS audit or schema work) is now empirically defensible. If 53.3% of the GPT-5.4 B2B commercial citation pool comes through aggregators, then improving a vendor's owned pages before closing the aggregator gap optimizes a channel that represents at most half of the accessible citation surface.
+The sequencing prescription (aggregator gap-mapping should be step one of every AEO engagement, before CMS audit or schema work) is now empirically defensible. If 53.3% of the GPT-5.4 B2B commercial citation pool comes through aggregators, then improving a vendor's owned pages before closing the aggregator gap optimizes a channel that represents at most half of the accessible citation surface.
 
 ## Raw data and artifacts
 

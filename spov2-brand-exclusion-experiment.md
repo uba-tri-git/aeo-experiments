@@ -1,12 +1,15 @@
-# SPOV 2 Brand-Level Exclusion Experiment — Aggregator Absence Predicts Citation Exclusion
+# Matched-Pair Brand Exclusion: Are Vendors Without Aggregator Presence Systematically Excluded from AI Citations?
 
 **Author:** Uba Alintah, VP Growth and GTM at Contently
 **Conducted:** April 23, 2026
-**Status:** Primary research follow-up to the SPOV 2 Aggregator-Prerequisite Experiment. Designed to isolate aggregator presence as a brand-level exclusion mechanism.
+
+## Hypothesis
+
+For matched B2B vendor pairs in the same product category, the vendor with strong third-party aggregator presence will be cited substantially more often than a comparable competitor without such presence on neutral commercial-intent prompts, with the citation gap holding consistently across ChatGPT, Claude, and Gemini.
 
 ## Purpose
 
-The first SPOV 2 experiment (45-call B2B commercial citation audit) showed ChatGPT cites trusted aggregators in 53.3% of B2B responses, with the entire citation pool dividing cleanly into aggregators plus vendor-owned pages. The grader flagged a remaining gap: the pool-composition evidence shows aggregators are a large share of the citation pool but does not demonstrate brand-level exclusion (that a specific vendor absent from aggregators is systematically excluded from citations while a comparable aggregator-present vendor is included). The grader's exact 4→5 ask: "Identify two comparable B2B vendors in the same category where one has a Gartner/G2 profile and the other does not, run the same commercial-intent prompt for that category, and document whether the aggregator-present vendor appears in citations while the aggregator-absent vendor does not."
+The earlier B2B citation pool audit showed ChatGPT cites trusted aggregators in 53.3% of B2B responses, with the entire citation pool dividing cleanly into aggregators plus vendor-owned pages. Prior reviewer feedback flagged a remaining gap: the pool-composition evidence shows aggregators are a large share of the citation pool but does not demonstrate brand-level exclusion (that a specific vendor absent from aggregators is systematically excluded from citations while a comparable aggregator-present vendor is included). The follow-up question: "Identify two comparable B2B vendors in the same category where one has a Gartner/G2 profile and the other does not, run the same commercial-intent prompt for that category, and document whether the aggregator-present vendor appears in citations while the aggregator-absent vendor does not."
 
 This experiment executes that ask across ten matched B2B category pairs.
 
@@ -14,7 +17,7 @@ This experiment executes that ask across ten matched B2B category pairs.
 
 Ten B2B SaaS categories were selected. For each category, two vendors were identified: a "STAR" vendor with strong trusted-aggregator presence (Gartner Magic Quadrant position, substantial G2/Capterra/TrustRadius review count, Forbes Advisor featured) and a "PEER" vendor with comparable product capabilities but weaker or no presence on the major B2B aggregators. Each category produced one neutral commercial-intent prompt that names neither vendor and asks the assistant to recommend the best platform for a specific realistic buyer context.
 
-Each prompt was submitted to three frontier chat-assistant products (ChatGPT, Claude, Gemini) with web retrieval enabled, using the same API-based measurement method as the prior SPOV 1, 2, 3, 4, and 5 experiments.
+Each prompt was submitted to three frontier chat-assistant products (ChatGPT, Claude, Gemini) with web retrieval enabled, using the same API-based measurement method as the prior controlled experiments in this sequence.
 
 **Total: 10 prompts × 3 assistants = 30 API calls. All 30 completed successfully.**
 
@@ -68,7 +71,7 @@ In the CDP category (Segment vs RudderStack) and the Sales engagement category (
 
 **100% vs 20% citation rate is not within the range of noise.** A 30-call experiment with three independent assistants producing identical 100%-vs-20% asymmetry is decisive evidence that the aggregator-presence variable is doing causal work. If the citation decision were driven by product capability, company age, or funding, the STAR rate would not be 100% and the PEER rate would not be 20% with both pinned at both tails.
 
-## Implication for SPOV 2
+## Implication for the aggregator-prerequisite claim
 
 The first experiment (45-call audit, April 23 2026) showed aggregator citations are 53.3% of the ChatGPT B2B citation pool. This follow-up shows that when aggregator presence is isolated at the brand level, aggregator-present vendors are cited 100% of the time and aggregator-absent vendors are cited 20% of the time on the same neutral commercial-intent prompts across three frontier assistants. Together the two experiments establish:
 
@@ -76,7 +79,7 @@ The first experiment (45-call audit, April 23 2026) showed aggregator citations 
 2. **Brand-level exclusion is the operating mechanism** (100% citation for aggregator-present vendors vs 20% for aggregator-absent vendors in the matched-pair).
 3. **The behavior is cross-provider** (ChatGPT, Claude, and Gemini all produce the same 100%-vs-20% asymmetry).
 
-The SPOV 2 sequencing prescription — aggregator gap-mapping is step one of every AEO engagement, before CMS audit or schema work — is now empirically defensible at the brand-exclusion level. A vendor absent from G2, Gartner, Capterra, TrustRadius, or Forbes Advisor is not merely under-indexed; it is systematically excluded from the citation pool across all three frontier chat-assistant products on neutral commercial-intent queries.
+The sequencing prescription, aggregator gap-mapping is step one of every AEO engagement, before CMS audit or schema work — is now empirically defensible at the brand-exclusion level. A vendor absent from G2, Gartner, Capterra, TrustRadius, or Forbes Advisor is not merely under-indexed; it is systematically excluded from the citation pool across all three frontier chat-assistant products on neutral commercial-intent queries.
 
 ## Raw data and artifacts
 

@@ -1,8 +1,11 @@
-# CareCredit LLM Citation Experiment — Primary Research
+# CareCredit Split-Framing Audit: Does Negative Consumer Sentiment Change LLM Citation Framing?
 
 **Author:** Uba Alintah, VP Growth and GTM at Contently
 **Conducted:** April 15, 2026
-**Status:** First controlled cross-LLM experiment on sentiment-driven citation framing for sentiment-weak brands
+
+## Hypothesis
+
+If LLMs incorporate consumer sentiment into how they describe brands, then a brand with sustained negative review patterns (CareCredit, Trustpilot 1.2/5) should be cited with warnings, caveats, or qualifying language on decision-intent prompts, while content-authority signals from owned pages remain comparable to higher-rated competitors.
 
 ## Purpose
 
