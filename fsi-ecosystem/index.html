@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The AI Search Visibility Ecosystem for Financial Services</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap');
+  :root{
+    --cyan:#00a6c2; --cyan-d:#0089a1; --ink:#16242f; --muted:#5d6f7d; --line:#e6ebee;
+    --dest:#00a6c2; --valid:#d98324; --comm:#7a5cc0; --trust:#1f9d6b; --own:#16242f;
+    --tilebg:#f3f6f8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:#fff;}
+  .page{width:1320px;margin:0 auto;background:#fff;padding:0 0 44px;}
+  /* header */
+  .top{display:flex;align-items:center;justify-content:space-between;padding:30px 48px 0;}
+  .top img.logo{height:30px;}
+  .edition{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan-d);
+    border:1.5px solid var(--cyan);border-radius:40px;padding:7px 16px;}
+  .head{text-align:center;padding:18px 48px 6px;}
+  .head h1{font-family:'Playfair Display',serif;font-weight:800;font-size:54px;line-height:1.04;color:var(--ink);letter-spacing:-.5px;}
+  .head h1 .acc{color:var(--cyan);}
+  .head p.sub{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:23px;color:var(--muted);margin-top:10px;}
+  /* insight */
+  .insight{margin:22px 48px 8px;background:linear-gradient(95deg,#06212a,#0c3340);color:#eaf6f9;border-radius:16px;
+    padding:20px 26px;display:flex;gap:20px;align-items:flex-start;}
+  .insight .bolt{font-size:30px;line-height:1;}
+  .insight b{color:#fff;}
+  .insight .ttl{font-weight:700;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:6px;}
+  .insight p{font-size:16.5px;line-height:1.5;color:#d4e7ec;}
+  .insight .src{font-size:12.5px;color:#8fb6c0;margin-top:7px;}
+  /* legend */
+  .legend{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;padding:16px 48px 4px;}
+  .legend span{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--muted);}
+  .dot{width:11px;height:11px;border-radius:3px;display:inline-block;}
+  /* section */
+  .sec{padding:14px 48px 0;}
+  .sec-h{display:flex;align-items:center;gap:13px;margin:16px 0 14px;}
+  .sec-h .bar{width:5px;height:30px;border-radius:4px;}
+  .sec-h .n{font-size:12px;font-weight:800;color:#fff;border-radius:7px;padding:4px 9px;letter-spacing:.04em;}
+  .sec-h h2{font-size:21px;font-weight:800;letter-spacing:-.2px;}
+  .sec-h .sm{font-size:14px;color:var(--muted);font-weight:500;margin-left:2px;}
+  .subh{font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:14px 0 9px;}
+  .grid{display:grid;gap:12px;}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  /* card */
+  .card{display:flex;gap:13px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:13px;
+    padding:13px 14px;box-shadow:0 1px 2px rgba(20,40,55,.04);position:relative;}
+  .card .tile{width:46px;height:46px;border-radius:11px;background:var(--tilebg);flex:0 0 46px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .card .tile img{width:30px;height:30px;object-fit:contain;}
+  .card .bd{flex:1;min-width:0;}
+  .card .nm{font-size:15px;font-weight:700;line-height:1.1;display:flex;align-items:center;gap:7px;}
+  .card .ds{font-size:12.5px;color:var(--muted);line-height:1.36;margin-top:4px;}
+  .chip{font-size:9.5px;font-weight:800;letter-spacing:.04em;padding:2px 7px;border-radius:20px;color:#fff;vertical-align:middle;}
+  .t1{background:var(--dest);} .t2{background:#5bb8c9;} .t3{background:#9bcdd6;color:#0a4a56;}
+  .lcap{position:absolute;top:0;left:0;width:5px;height:100%;border-radius:13px 0 0 13px;}
+  /* own + measure band */
+  .band{margin:26px 48px 0;border-radius:18px;background:linear-gradient(100deg,#00a6c2,#0089a1);color:#fff;padding:26px 30px;
+    display:grid;grid-template-columns:1.3fr 1fr;gap:24px;}
+  .band .blk h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-bottom:8px;}
+  .band .blk .big{font-size:23px;font-weight:800;line-height:1.15;margin-bottom:8px;}
+  .band .blk p{font-size:14.5px;line-height:1.5;color:#e7f7fb;}
+  .band .blk .row{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+  .band .blk .row img{height:26px;background:#fff;border-radius:6px;padding:4px 7px;}
+  .band .divider{border-left:1.5px solid rgba(255,255,255,.28);padding-left:24px;}
+  .band .pill{display:inline-block;background:rgba(255,255,255,.16);border-radius:8px;padding:8px 12px;font-size:13.5px;font-weight:600;margin-top:4px;}
+  /* footer */
+  .foot{display:flex;align-items:center;justify-content:space-between;padding:26px 48px 0;margin-top:8px;border-top:1px solid var(--line);}
+  .foot img{height:26px;}
+  .foot .meta{font-size:12px;color:var(--muted);text-align:right;line-height:1.5;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top">
+    <img class="logo" src="logos/contently.png" alt="Contently">
+    <span class="edition">Financial Services Edition</span>
+  </div>
+
+  <div class="head">
+    <h1>The AI Search <span class="acc">Visibility Ecosystem</span></h1>
+    <p class="sub">How financial brands get found, trusted, and cited in AI answers.</p>
+  </div>
+
+  <div class="insight">
+    <div class="bolt">&#9889;</div>
+    <div>
+      <div class="ttl">The finance rule the generic maps miss</div>
+      <p><b>First-party content tends to perform strongest on branded, factual, and entity questions. Discovery and comparison questions tend to rely more on third-party validators.</b> In regulated finance (a "Your Money or Your Life" category) AI favors credentialed, corroborated sources, so you have to win both layers, not just your website.</p>
+      <div class="src">Source: Contently and Radarly citation data for live financial clients, plus 2026 industry studies (BrightEdge, SE Ranking, Similarweb, 5W, Goodie).</div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span><i class="dot" style="background:var(--dest)"></i>AI Engines (destinations)</span>
+    <span><i class="dot" style="background:var(--valid)"></i>Validators (borrowed trust)</span>
+    <span><i class="dot" style="background:var(--comm)"></i>Community &amp; social</span>
+    <span><i class="dot" style="background:var(--trust)"></i>Trust floor (regulatory &amp; entity)</span>
+    <span><i class="dot" style="background:var(--own)"></i>What you control</span>
+  </div>
+
+  <!-- DESTINATIONS -->
+  <div class="sec">
+    <div class="sec-h">
+      <span class="bar" style="background:var(--dest)"></span>
+      <span class="n" style="background:var(--dest)">01</span>
+      <h2>The Destinations</h2><span class="sm">where the answers appear, and how each one sources finance</span>
+    </div>
+    <div class="grid g4">
+      <div class="card"><span class="lcap" style="background:var(--dest)"></span><div class="tile"><img src="logos/chatgpt.png"></div><div class="bd"><div class="nm">ChatGPT <span class="chip t1">TIER 1</span></div><div class="ds">Largest AI assistant. About 70% of its finance citations are data and news sources (BrightEdge).</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--dest)"></span><div class="tile"><img src="logos/aioverviews.png"></div><div class="bd"><div class="nm">AI Overviews <span class="chip t1">TIER 1</span></div><div class="ds">Google's in-search answers. ~96% consumer-finance education; video in ~34% (BrightEdge).</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--dest)"></span><div class="tile"><img src="logos/gemini.png"></div><div class="bd"><div class="nm">Gemini <span class="chip t1">TIER 1</span></div><div class="ds">Google index. Rewards clear structure, schema, and answer-first content.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--dest)"></span><div class="tile"><img src="logos/perplexity.png"></div><div class="bd"><div class="nm">Perplexity <span class="chip t2">TIER 2</span></div><div class="ds">Citation-first. Over-indexes Reddit; LinkedIn and G2 feature in B2B answers.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--dest)"></span><div class="tile"><img src="logos/copilot.png"></div><div class="bd"><div class="nm">Copilot <span class="chip t2">TIER 2</span></div><div class="ds">Bing web plus your internal documents inside Microsoft 365.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--dest)"></span><div class="tile"><img src="logos/claude.png"></div><div class="bd"><div class="nm">Claude <span class="chip t3">TIER 3</span></div><div class="ds">Diversified and reasoning-heavy. Strong for institutional, enterprise queries.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--dest)"></span><div class="tile"><img src="logos/grok.png"></div><div class="bd"><div class="nm">Grok <span class="chip t3">TIER 3</span></div><div class="ds">Real-time X conversations. Market sentiment, not deep reference.</div></div></div>
+      <div class="card" style="background:#f7fbfc;border-style:dashed;"><span class="lcap" style="background:var(--dest)"></span><div class="tile" style="background:#e3f4f7"><img src="logos/radarly.png"></div><div class="bd"><div class="nm">Measure it: Radarly</div><div class="ds">Track your visibility, citations, and prompts across every engine above.</div></div></div>
+    </div>
+  </div>
+
+  <!-- VALIDATORS -->
+  <div class="sec">
+    <div class="sec-h">
+      <span class="bar" style="background:var(--valid)"></span>
+      <span class="n" style="background:var(--valid)">02</span>
+      <h2>The Validators</h2><span class="sm">where AI actually gets its finance answers ("you don't need to outrank NerdWallet, you need to be in NerdWallet")</span>
+    </div>
+
+    <div class="subh">Reference &amp; comparison</div>
+    <div class="grid g3">
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/investopedia.png"></div><div class="bd"><div class="nm">Investopedia</div><div class="ds">One of the most-cited finance references. It frames your category.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/nerdwallet.png"></div><div class="bd"><div class="nm">NerdWallet</div><div class="ds">Frequently cited in consumer-finance and banking answers.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/bankrate.png"></div><div class="bd"><div class="nm">Bankrate</div><div class="ds">Rates and "best of" lists AI pulls product recommendations from.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/thebalance.png"></div><div class="bd"><div class="nm">The Balance</div><div class="ds">Personal-finance explainers, heavily indexed and excerpted.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/valuepenguin.png"></div><div class="bd"><div class="nm">ValuePenguin</div><div class="ds">Insurance and card comparisons, structured for extraction.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/wallethub.png"></div><div class="bd"><div class="nm">WalletHub</div><div class="ds">Card and credit comparisons AI uses to build shortlists.</div></div></div>
+    </div>
+
+    <div class="subh">Financial &amp; trade media</div>
+    <div class="grid g4">
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/bloomberg.png"></div><div class="bd"><div class="nm">Bloomberg</div><div class="ds">High-authority markets and institutional coverage.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/wsj.png"></div><div class="bd"><div class="nm">Wall Street Journal</div><div class="ds">Markets, policy, and enterprise finance.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/ft.png"></div><div class="bd"><div class="nm">Financial Times</div><div class="ds">Global markets and institutional finance.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/reuters.png"></div><div class="bd"><div class="nm">Reuters</div><div class="ds">Wire coverage AI trusts for facts and timeliness.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/cnbc.png"></div><div class="bd"><div class="nm">CNBC</div><div class="ds">A "power player" for timely market and regulation answers.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/forbes.png"></div><div class="bd"><div class="nm">Forbes Advisor</div><div class="ds">Explainers that rank among the most-cited finance content.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/morningstar.png"></div><div class="bd"><div class="nm">Morningstar</div><div class="ds">Fund, ETF, and investment research authority.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/americanbanker.png"></div><div class="bd"><div class="nm">American Banker</div><div class="ds">Top trade source for banking and fintech B2B answers.</div></div></div>
+    </div>
+
+    <div class="subh">Analyst research, ratings agencies &amp; B2B software review</div>
+    <div class="grid g4">
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/gartner.png"></div><div class="bd"><div class="nm">Gartner</div><div class="ds">Magic Quadrants shape who AI calls a "leader."</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/forrester.png"></div><div class="bd"><div class="nm">Forrester</div><div class="ds">Wave reports cited via media and vendor pages.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/spglobal.png"></div><div class="bd"><div class="nm">S&amp;P Global</div><div class="ds">Ratings and market data underlying risk answers.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/moodys.png"></div><div class="bd"><div class="nm">Moody's</div><div class="ds">Credit ratings AI surfaces via news and filings.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/celent.png"></div><div class="bd"><div class="nm">Celent</div><div class="ds">FSI-tech research that defines the vendor landscape.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/fitch.png"></div><div class="bd"><div class="nm">Fitch Ratings</div><div class="ds">Credit and solvency assessments cited downstream.</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/g2.png"></div><div class="bd"><div class="nm">G2</div><div class="ds">Fintech reviews. Presence across review sites lifts citation odds (SE Ranking).</div></div></div>
+      <div class="card"><span class="lcap" style="background:var(--valid)"></span><div class="tile"><img src="logos/capterra.png"></div><div class="bd"><div class="nm">Capterra</div><div class="ds">Software reviews and category pages AI ranks from.</div></div></div>
+    </div>
+  </div>
+
+  <!-- COMMUNITY + TRUST FLOOR side by side -->
+  <div class="sec">
+    <div style="display:grid;grid-template-columns:1fr 1.35fr;gap:34px;">
+      <div>
+        <div class="sec-h">
+          <span class="bar" style="background:var(--comm)"></span>
+          <span class="n" style="background:var(--comm)">03</span>
+          <h2>Community &amp; Social</h2>
+        </div>
+        <div class="grid" style="grid-template-columns:1fr 1fr;">
+          <div class="card"><span class="lcap" style="background:var(--comm)"></span><div class="tile"><img src="logos/reddit.png"></div><div class="bd"><div class="nm">Reddit</div><div class="ds">Finance subreddits are heavily cited for money questions.</div></div></div>
+          <div class="card"><span class="lcap" style="background:var(--comm)"></span><div class="tile"><img src="logos/linkedin.png"></div><div class="bd"><div class="nm">LinkedIn</div><div class="ds">Prominent in Perplexity for B2B and professional queries.</div></div></div>
+          <div class="card"><span class="lcap" style="background:var(--comm)"></span><div class="tile"><img src="logos/youtube.png"></div><div class="bd"><div class="nm">YouTube</div><div class="ds">A top domain for AI Overviews. Explainer video earns citations.</div></div></div>
+          <div class="card"><span class="lcap" style="background:var(--comm)"></span><div class="tile"><img src="logos/x.png"></div><div class="bd"><div class="nm">X</div><div class="ds">Real-time market sentiment, especially for Grok.</div></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="sec-h">
+          <span class="bar" style="background:var(--trust)"></span>
+          <span class="n" style="background:var(--trust)">04</span>
+          <h2>The Trust Floor</h2><span class="sm">every engine anchors here</span>
+        </div>
+        <div class="subh" style="margin-top:0">Regulatory (.gov: 11-17% of finance citations, BrightEdge)</div>
+        <div class="grid g3">
+          <div class="card"><span class="lcap" style="background:var(--trust)"></span><div class="tile"><img src="logos/sec.png" alt="SEC"></div><div class="bd"><div class="nm">SEC</div><div class="ds">Securities regulator.</div></div></div>
+          <div class="card"><span class="lcap" style="background:var(--trust)"></span><div class="tile"><img src="logos/finra.png" alt="FINRA"></div><div class="bd"><div class="nm">FINRA</div><div class="ds">Broker-dealer regulator.</div></div></div>
+          <div class="card"><span class="lcap" style="background:var(--trust)"></span><div class="tile"><img src="logos/fdic.png" alt="FDIC"></div><div class="bd"><div class="nm">FDIC</div><div class="ds">Deposit insurer.</div></div></div>
+          <div class="card"><span class="lcap" style="background:var(--trust)"></span><div class="tile"><img src="logos/fed.png" alt="Federal Reserve"></div><div class="bd"><div class="nm">Federal Reserve</div><div class="ds">US central bank.</div></div></div>
+          <div class="card"><span class="lcap" style="background:var(--trust)"></span><div class="tile"><img src="logos/irs.png" alt="IRS"></div><div class="bd"><div class="nm">IRS</div><div class="ds">Tax authority.</div></div></div>
+          <div class="card"><span class="lcap" style="background:var(--trust)"></span><div class="tile"><img src="logos/fca.png" alt="FCA"></div><div class="bd"><div class="nm">FCA</div><div class="ds">UK conduct regulator.</div></div></div>
+        </div>
+        <div class="subh">Entity (who the AI thinks you are)</div>
+        <div class="grid g3">
+          <div class="card"><span class="lcap" style="background:var(--trust)"></span><div class="tile"><img src="logos/wikipedia.png"></div><div class="bd"><div class="nm">Wikipedia</div><div class="ds">Entity backbone. ~13% of all US ChatGPT citations.</div></div></div>
+          <div class="card"><span class="lcap" style="background:var(--trust)"></span><div class="tile"><img src="logos/wikidata.png"></div><div class="bd"><div class="nm">Wikidata</div><div class="ds">Structured data that disambiguates your brand.</div></div></div>
+          <div class="card"><span class="lcap" style="background:var(--trust)"></span><div class="tile"><img src="logos/crunchbase.png"></div><div class="bd"><div class="nm">Crunchbase</div><div class="ds">Company, funding, leadership facts.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT YOU CONTROL -->
+  <div class="band">
+    <div class="blk">
+      <h3>What you control: the center of the ecosystem</h3>
+      <div class="row"><img src="logos/contently.png" alt="Contently"></div>
+      <div class="big">Your institution's expert content: credentialed, answer-first, compliant.</div>
+      <p>It wins the branded and institutional questions outright, and it is the raw material every validator above cites. In YMYL finance, authoritative first-party content matters more than in any other category. This is what Contently builds.</p>
+    </div>
+    <div class="blk divider">
+      <h3>Then measure it</h3>
+      <div class="big">Radarly tracks your share of the whole ecosystem.</div>
+      <p>Visibility, citations, sentiment, and the exact prompts and domains feeding AI answers, across every engine.</p>
+      <span class="pill">Win the content. Earn the validators. Measure the answer.</span>
+    </div>
+  </div>
+
+  <div class="foot">
+    <img src="logos/contently.png" alt="Contently">
+    <div class="meta">The AI Search Visibility Ecosystem, Financial Services Edition &nbsp;|&nbsp; Built by Contently, June 2026<br>
+    Sources: Contently and Radarly citation data, plus BrightEdge, SE Ranking, Similarweb, 5W, and Goodie AI-search studies (2026).</div>
+  </div>
+
+</div>
+</body>
+</html>
